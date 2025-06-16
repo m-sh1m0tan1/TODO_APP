@@ -10,7 +10,7 @@ class TaskForm(forms.ModelForm):
         fields = ('title', 'description', 'start_date', 'end_date') # フォームに表示するフィールドを指定
         widgets = { # 特定のフィールドの見た目を設定、日付+時刻入力フィールドになる
             'start_date' : forms.DateTimeInput(attrs={'type' : 'datetime-local'}),
-            'end-date' : forms.DateTimeInput(attrs={'type' : 'datetime-local'}),
+            'end_date' : forms.DateTimeInput(attrs={'type' : 'datetime-local'}),
         }
         
         def __init__(self, *args, **kwargs): # フォーム生成時の初期化処理

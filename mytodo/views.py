@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View # クラスベースビューを継承するために必要
 from .models import Task
+from .forms import TaskForm
+# from .forms import TaskForm
 
 # Create your views here.
 
@@ -18,7 +20,8 @@ index = IndexView.as_view()
 
 class AddView(View):
     def get(self, request):
-        return render(request, 'mytodo/add.html')
+        form = TaskForm()
+        return render(request, 'mytodo/add.html', {'form' : form})
     
     def post(self, request, *args, **kwargs):
         # 登録処理
@@ -37,3 +40,15 @@ class AddView(View):
         return render(request, 'mytodo/add.html', {'form' : form})
     
 add = AddView.as_view()
+
+class Update_task_complete(View):
+    def post(self, request, *args, **kwargs):
+        task_id = request.POST.get('task_id')
+        
+        task = Task.objects.get(id=task_id)
+        task.complete = not task.complete
+        task.save()
+        
+        return redirect('/')
+    
+Update_task_complete = Update_task_complete.as_view()
