@@ -124,3 +124,13 @@ h1 {
   text-decoration: none;
   color: white;
 }
+
+.index ul li form input{
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.index ul li form input:checked{
+  accent-color: #40ba8d;
+}

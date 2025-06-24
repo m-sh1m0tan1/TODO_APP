@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'css/delete.css' %}">{% endblock %}
+{% block title %}- Delete{% endblock title %}
+
+{% block contents %}
+<h1>タスクの削除</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="task_id" value="{{id}}">
+    <h3>{{id}}番の{{title}}のタスクを削除しますか？</h3>
+    <button type="submit">削除</button>
+    <a href="{% url 'index' %}"><button type="button">戻る</button></a>
+</form>
+{% endblock contents %}

@@ -1,4 +1,6 @@
 {% load static %}
+{% comment %} {% load django_bootstrap5 %} {% endcomment %}
+{% comment %} {% load django_bootstrap5 %} {% endcomment %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% comment %} {% bootstrap_css %} {% endcomment %}
+    {% block style %}{% endblock %}
     <title>TodoApp {% block title %}{% endblock title %}</title>
 </head>
 <body>
@@ -16,5 +20,6 @@
     </div>
 
     {% block footer %}{% endblock footer %}
+    {% comment %} {% bootstrap_javascript %} {% endcomment %}
 </body>
 </html>

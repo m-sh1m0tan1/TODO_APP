@@ -13,14 +13,34 @@
             <input type="hidden" name="task_id" value="{{task.id}}">
             <input type="checkbox" name="task_{{task.id}}" onchange="this.form.submit()" {% if task.complete %}checked{% endif %}>
             <div class="task-header">
-                <span class="task-title">{{task.title}}</span>
+                <a href="{% url 'update' task.id %}"><span class="task-title">{{task.title}}</span></a>
+                <a href="{% url 'delete' task.id %}">削除</a>
                 <span class="task-date">
                     {{task.start_date|date:"Y年m月d日 H:i"}} - {{task.end_date|date:"Y年m月d日 H:i"}}
                 </span>
             </div>
             <p class="task-description">{{task.description}}</p>
         </form>
-      <p>{{task.title}}</p>
+      {% comment %} <p>{{task.title}}</p> {% endcomment %}
+    </li>
+    {% endfor %}
+    <h1>完了したタスク</h1>
+    {% for task in todo_checked_list %}
+    <li class="{% if task.complete %}complete{% endif %}">
+        <form action="{% url 'update_task_complete' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" value="{{task.id}}">
+            <input type="checkbox" name="task_{{task.id}}" onchange="this.form.submit()" {% if task.complete %}checked{% endif %}>
+            <div class="task-header">
+                <a href="{% url 'update' task.id %}"><span class="task-title">{{task.title}}</span></a>
+                <a href="{% url 'delete' task.id %}">削除</a>
+                <span class="task-date">
+                    {{task.start_date|date:"Y年m月d日 H:i"}} - {{task.end_date|date:"Y年m月d日 H:i"}}
+                </span>
+            </div>
+            <p class="task-description">{{task.description}}</p>
+        </form>
+      {% comment %} <p>{{task.title}}</p> {% endcomment %}
     </li>
     {% endfor %}
   </ul>
