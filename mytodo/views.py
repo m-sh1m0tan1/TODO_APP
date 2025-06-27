@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views import View, generic # クラスベースビューを継承するために必要
+from django.views import View
 from .models import Task
 from .forms import TaskForm
 

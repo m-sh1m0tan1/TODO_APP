@@ -6,7 +6,7 @@
 <div class="add">
 <h1>タスクの編集</h1>
 {% comment %} {{task.id}} {% endcomment %}
-<form action="{% url 'update' task.id %}" method="post">
+<form action="" method="post">
     {% csrf_token %}
     <div>
       <label for="{{ form.title.id_for_label }}">タスク名:</label>

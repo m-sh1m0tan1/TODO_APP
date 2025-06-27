@@ -11,7 +11,7 @@
     {% csrf_token %}
     <input type="hidden" name="task_id" value="{{id}}">
     <h3>{{id}}番の{{title}}のタスクを削除しますか？</h3>
-    <button type="submit">削除</button>
+    <button type="submit" id="delete-button">削除</button>
     <a href="{% url 'index' %}"><button type="button">戻る</button></a>
 </form>
 {% endblock contents %}

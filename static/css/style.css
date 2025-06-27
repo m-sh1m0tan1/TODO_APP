@@ -21,7 +21,7 @@ h1 {
 
 .index a {
   display: inline-block;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   padding: 10px 15px;
   background-color: #007bff;
   color: #fff;
@@ -48,13 +48,15 @@ h1 {
 .index li.complete {
   text-decoration: line-through;
   color: #999;
+  background-color: #ccc;
 }
 
 .task-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .task-title {
@@ -127,10 +129,36 @@ h1 {
 
 .index ul li form input{
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
 }
 
 .index ul li form input:checked{
-  accent-color: #40ba8d;
+  accent-color: #5383d3;
+}
+
+#delete-button{
+  background-color: red;
+  /* text-decoration: none; */
+}
+
+#delete-button:hover{
+  background-color: #b22d35;
+}
+
+.index .add-button{
+  margin-bottom: 20px;
+}
+
+.index .title-button{
+  width: fit-content;
+  text-align: center;
+  position: sticky;
+}
+
+.index .title-div{
+  width: 35%;
+}
+.delete-button{
+  text-decoration: none;
 }
